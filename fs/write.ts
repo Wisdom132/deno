@@ -1,5 +1,5 @@
 // await Deno.writeTextFile("./file.txt", "This is the content to be written");
-// Deno.writeTextFileSync("./file.txt", "This is the content to besync written");
+Deno.writeTextFileSync("./file.txt", "This is the content to besync written");
 
 // const encoder = new TextEncoder(); // to convert a string to Uint8Array
 // // await Deno.writeFile("./file.txt", encoder.encode("Content to be written"));
