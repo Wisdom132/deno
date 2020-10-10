@@ -16,5 +16,4 @@ let createFile = () => {
     Deno.writeTextFileSync(`./${params[1]}`, "//This is your created file");
   }
 };
-
 createFile();
