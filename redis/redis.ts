@@ -35,9 +35,29 @@ let add = async(key:string,name:string,email:string) => {
 // console.log(await getParticular('key1'))
 
 
-let deleteKey = async (id:string) => {
-    let deleted = await redis.del(id);
-    return deleted
-}
-console.log(await deleteKey('key1'))
+// let deleteKey = async (id:string) => {
+//     let deleted = await redis.del(id);
+//     return deleted
+// }
+// console.log(await deleteKey('key1'))
 
+
+
+// let config = await redis.cluster_info()
+// console.log(config)
+
+// await redis.cluster_meet("127.0.0.1", 3670);
+
+
+
+let config = await redis.config_get("cluster-enabled");
+console.log(config)
+// let hash_set = await redis.executor.exec("HSET", "name", "wisdom");
+// let hash_get = await redis.executor.exec("HGET", "name");
+
+// console.log(hash_get)
+
+
+// await redis.executor.exec("SET", "name", "Wisdom Ekpot")
+// let get = await redis.executor.exec("GET", "name");
+// console.log(get)
