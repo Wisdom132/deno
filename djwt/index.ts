@@ -29,6 +29,9 @@ const generateJWT = (name:string) => {
   return makeJwt({ key:secret_key, header, payload:payloader(name) })
 }
 
+const validateToken = (token:string) => {
+    return validateJwt({jwt:token, key:secret_key,algorithm:header.alg});
+}
 
 
 router
@@ -43,11 +46,17 @@ router
   
   
   .post("/generate", async (context) => {
-     let body: any = await context.request.body();
+    let body: any = await context.request.body();
     const { name } = await body.value;
     let token = await generateJWT(name)
-    context.response.body = { status: true, data: name,token:token };
-    console.log(name)
+    context.response.body = { status: true, data: name, token: token };
+  })
+
+  .post("/validate", async (context) => {
+    let body: any = await context.request.body();
+    const { token } = await body.value;
+    let validator =  await validateToken(token)
+   context.response.body = {validator};
   });
 
 
